@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathforge - Knowledge check</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="loadingScreen">
+        <div class="cup-container">
+            <svg viewBox="0 0 120 120" style="width: 100%; height: 100%;">
+                <defs>
+                    <clipPath id="cup-interior">
+                        <path d="M 35 40 L 85 40 Q 83 83, 80 85 Q 75 90, 60 90 Q 45 90, 40 85 Q 37 83, 35 40 Z" />
+                    </clipPath>
+                </defs>
+                
+                <ellipse cx="60" cy="102" rx="38" ry="6" fill="none" stroke="#FDF8F3" stroke-width="3" opacity="0.4"/>
+                
+                <g clip-path="url(#cup-interior)">
+                    <g id="liquidLevelGroup" style="transform: translateY(40px); transition: transform 10s linear;">
+                        <path id="liquidFill" d="M 0 0 Q 15 -4, 30 0 T 60 0 T 90 0 T 120 0 T 150 0 L 150 120 L 0 120 Z" 
+                              fill="#38BDF8" style="animation: waveMove 1.4s infinite linear; transition: fill 10s ease;"/>
+                    </g>
+                </g>
+                
+                <path d="M 33 36 L 87 36 Q 85 83, 82 86 Q 77 92, 60 92 Q 43 92, 38 86 Q 35 83, 33 36 Z" 
+                      fill="none" stroke="#FDF8F3" stroke-width="4" stroke-linejoin="round"/>
+                
+                <path d="M 86 46 C 100 46, 104 55, 104 65 C 104 75, 98 79, 86 79" 
+                      fill="none" stroke="#FDF8F3" stroke-width="4" stroke-linecap="round"/>
+                
+                <g id="stirringSpoon" style="display: none; transform-origin: 60px 45px;">
+                    <path d="M 75 15 L 62 48 C 60 53, 55 53, 54 48 Z" fill="none" stroke="#FDF8F3" stroke-width="2.5" stroke-linecap="round"/>
+                </g>
+                
+                <g id="steamLines">
+                    <path d="M 48 24 Q 51 16, 48 10" fill="none" stroke="#FDF8F3" stroke-width="2" stroke-linecap="round" style="animation: steamRise 1.8s infinite ease-in-out;"/>
+                    <path d="M 60 26 Q 63 18, 60 12" fill="none" stroke="#FDF8F3" stroke-width="2" stroke-linecap="round" style="animation: steamRise 1.8s infinite ease-in-out; animation-delay: 0.4s;"/>
+                    <path d="M 72 24 Q 75 16, 72 10" fill="none" stroke="#FDF8F3" stroke-width="2" stroke-linecap="round" style="animation: steamRise 1.8s infinite ease-in-out; animation-delay: 0.8s;"/>
+                </g>
+            </svg>
+        </div>
+        <div id="loadingText">☕ Boiling water... Establishing neural pipeline with Gemini API</div>
+    </div>
+
+    <div class="container" id="quizInterface">
+        <div class="left-panel">
+            <div class="top-content">
+                <div class="brand">
+                    <span class="dot"></span> PATHFORGE <span class="line">|</span> <span class="subtitle">CAREER NAVIGATOR</span>
+                </div>
+                
+                <h1 class="hero-text">Let's see what<br>you already <em class="highlight-teal">know.</em></h1>
+                
+                <p class="hero-subtext">
+                    Eight quick questions. No wrong answers — just an honest snapshot 
+                    of your interests and skill level, so your roadmap starts at the right place.
+                </p>
+                
+                <div class="progress-tracker">
+                    <div class="step">
+                        <div class="step-circle completed">✓</div>
+                        <div class="step-text">
+                            <strong>Your profile</strong>
+                            <span>Name, year, stream & interest</span>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-circle">02</div>
+                        <div class="step-text">
+                            <strong>Knowledge check</strong>
+                            <span>8 quick questions</span>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-circle inactive">03</div>
+                        <div class="step-text inactive-text">
+                            <strong>Your roadmap</strong>
+                            <span>Courses picked for you</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="left-footer" style="display: flex; justify-content: space-between; width: 100%;">
+                <span>Step 2 of 3</span>
+                <span id="leftBottomCounter">0/8 answered</span>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="form-card">
+                <div class="quiz-header">
+                    <div class="progress-bar-container">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="question-counter-text" id="questionCounter">Question 1 of 8</span>
+                </div>
+
+                <h2 class="question-title" id="questionText">Loading question...</h2>
+
+                <div class="options-container" id="optionsContainer">
+                    </div>
+
+                <div class="quiz-footer">
+                    <button class="back-btn" id="backBtn" style="visibility: hidden;">&larr; Back</button>
+                    <div class="dots-indicator" id="dotsIndicator"></div>
+                    <button class="next-btn" id="nextBtn" disabled>Next &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

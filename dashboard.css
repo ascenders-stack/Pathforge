@@ -1,0 +1,340 @@
+:root {
+    --bg-main: #0B101A;
+    --card-dark: #121826;
+    --card-light: #F9F7F2; /* Cream background matching screenshot 2 */
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --text-light: #F8FAFC;
+    --text-dark: #1F242E;
+    --text-muted: #94A3B8;
+    --text-muted-dark: #575F6E;
+    --accent-orange: #E68A4B;
+    --accent-teal: #14B8A6;
+    --accent-purple: #A855F7;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: var(--bg-main);
+    color: var(--text-light);
+    font-family: var(--font-body);
+    min-height: 100vh;
+}
+
+/* Base Top Navigation Bar */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    border-bottom: 1px solid var(--border-glass);
+}
+.brand { font-weight: 700; letter-spacing: 2px; font-size: 0.85rem; display: flex; align-items: center; gap: 10px; }
+.brand .dot { width: 8px; height: 8px; background-color: var(--accent-orange); border-radius: 50%; }
+.brand .subtitle { color: var(--text-muted); font-weight: 400; }
+.user-menu { display: flex; align-items: center; gap: 12px; }
+.user-avatar { width: 32px; height: 32px; background: var(--accent-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+
+/* Responsive Grid Base Containers */
+.app-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Banner Styling Container */
+.hero-banner {
+    background: linear-gradient(135deg, #131926 0%, #0F1420 100%);
+    border-radius: 20px;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border-glass);
+    gap: 2.5rem;
+}
+
+.hero-content { flex: 1; }
+.hero-content h1 { font-family: var(--font-heading); font-size: 3rem; margin-bottom: 0.4rem; }
+.hero-content p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.2rem; }
+
+/* Dynamic Personality Read Box styling */
+.personal-read-box {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid #C4A478;
+    padding: 1rem 1.2rem;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 1.8rem;
+    max-width: 680px;
+}
+.personal-read-box h5 {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #C4A478;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+}
+.personal-read-box p {
+    color: #CBD5E1;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+.primary-btn {
+    background: #E879F9;
+    background: linear-gradient(to right, #F97316, #EA580C);
+    color: white; border: none; padding: 0.8rem 1.6rem;
+    border-radius: 8px; font-weight: 600; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.primary-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(249,115,22,0.3); }
+
+/* Left Hand Skill Graph bars */
+.hero-visuals { 
+    width: 380px; 
+    flex-shrink: 0; 
+}
+.cognitive-card h4 { font-size: 0.8rem; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 1.5rem; font-weight: 600; }
+.skill-bar-group { display: flex; flex-direction: column; gap: 1.2rem; }
+.skill-label-row { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.4rem; }
+.skill-track { height: 4px; background: rgba(255,255,255,0.08); border-radius: 5px; }
+.skill-fill { height: 100%; width: 0; background: var(--accent-orange); border-radius: 5px; transition: width 1.2s cubic-bezier(0.1, 1, 0.1, 1); }
+
+/* Splits Control Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 2rem;
+}
+
+/* Button Lists Action Column */
+.action-menu {
+    background: var(--card-light);
+    border-radius: 20px;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.menu-card {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.04);
+    border-radius: 14px;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    cursor: pointer;
+    text-align: left;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+}
+.menu-card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.06); }
+.icon-box {
+    width: 46px; 
+    height: 46px; 
+    border-radius: 12px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 1.4rem; 
+    flex-shrink: 0; 
+}
+.card-text h3 { color: var(--text-dark); font-size: 1.05rem; font-weight: 700; margin-bottom: 0.15rem; }
+.card-text p { color: var(--text-muted-dark); font-size: 0.82rem; }
+
+/* OVERHAULED GRAPH LAYOUT (Fixed for Mobile Scrolling) */
+.graph-container {
+    background: var(--card-light);
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-dark);
+    /* Mobile Fix: Allows smooth horizontal scrolling if content overflows */
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; 
+}
+.graph-container h2 { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; margin-bottom: 3.5rem; }
+
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    /* Mobile Fix: Forces the graph to never shrink below 700px, creating the scroll effect rather than overlapping text */
+    min-width: 700px; 
+    margin-top: auto;
+    padding-bottom: 1rem;
+}
+
+.chart-area {
+    position: relative;
+    width: 100%;
+    height: 240px; /* Gives balanced padding room for top labels */
+}
+
+.chart-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Individual node layout structures placement */
+.chart-node {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.node-dot {
+    width: 15px;
+    height: 15px;
+    background: #F9F7F2;
+    border: 3.5px solid #C4A478; /* Clean bronze circular intersections */
+    border-radius: 50%;
+    z-index: 5;
+    box-shadow: 0 0 0 2px #F9F7F2;
+}
+
+/* Fine Vertical Grid Lines tracking downwards */
+.node-drop-line {
+    position: absolute;
+    top: 6px;
+    width: 1px;
+    height: 300px; /* Falls down to cut baseline axis */
+    background-color: rgba(0, 0, 0, 0.08);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Multi-line Label text placement directly above vectors */
+.node-text-wrapper.top-stack {
+    position: absolute;
+    bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 160px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.node-meta-title {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.node-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted-dark);
+    line-height: 1.2;
+}
+
+/* Dedicated Solid Axis Baseline styling layout */
+.axis-footer-line {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.15);
+    margin-top: 4px;
+    position: relative;
+    z-index: 4;
+}
+
+.axis-labels-row {
+    position: relative;
+    width: 100%;
+    height: 25px;
+    margin-top: 8px;
+}
+
+.axis-labels-row span {
+    position: absolute;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted-dark);
+}
+
+/* Modal Styling Architecture */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(5, 8, 15, 0.75);
+    backdrop-filter: blur(10px);
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    padding: 20px; /* Mobile Fix: Ensures modal doesn't touch screen edges */
+}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+
+.modal-content {
+    background: #0F1422;
+    border: 1px solid var(--border-glass);
+    border-radius: 24px;
+    width: 100%; /* Mobile Fix: Adjusted to work with overlay padding */
+    max-width: 680px;
+    max-height: 85vh;
+    overflow-y: auto; /* Fix: Makes modal contents scrollable if long */
+    padding: 3rem;
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.modal-overlay.active .modal-content { transform: scale(1); }
+
+.close-btn {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    background: none; border: none; color: white;
+    font-size: 2.2rem; cursor: pointer; opacity: 0.4;
+    z-index: 10; /* Ensures close button stays clickable */
+}
+.close-btn:hover { opacity: 1; }
+
+.modal-badge { color: #C4A478; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; }
+.modal-header h2 { font-family: var(--font-heading); font-size: 2.4rem; margin: 0.4rem 0 2rem 0; }
+
+.content-block {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-glass);
+    padding: 1.6rem;
+    border-radius: 14px;
+    margin-bottom: 1.2rem;
+}
+.content-block h4 { color: #F97316; margin-bottom: 0.5rem; font-size: 1.15rem; font-weight: 600; }
+.content-block p { color: #94A3B8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem; }
+.meta-row { display: flex; gap: 1.5rem; font-size: 0.85rem; color: #E2E8F0; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 0.8rem; }
+
+/* Media Queries for Mobile Screens */
+@media (max-width: 968px) {
+    .dashboard-grid { grid-template-columns: 1fr; }
+    .hero-banner { flex-direction: column; align-items: stretch; }
+    .hero-visuals { width: 100%; }
+}
+
+@media (max-width: 600px) {
+    .app-container { padding: 1.5rem 1rem; }
+    .top-nav { padding: 1rem 1.5rem; }
+    .hero-banner { padding: 2rem 1.5rem; }
+    .hero-content h1 { font-size: 2.2rem; }
+    .graph-container { padding: 1.5rem; }
+    .modal-content { padding: 2rem 1.5rem; }
+}

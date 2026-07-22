@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathforge - Tell us about you</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        
+        <div class="left-panel">
+            <div class="top-content">
+                <div class="brand">
+                    <span class="dot"></span> PATHFORGE <span class="line">|</span> <span class="subtitle">CAREER NAVIGATOR</span>
+                </div>
+                
+                <h1 class="hero-text">Your career,<br><em class="highlight">mapped</em> — not<br>guessed.</h1>
+                
+                <p class="hero-subtext">
+                    Tell us a little about yourself. We'll turn it into a personalised 
+                    course roadmap, shaped around your stream, your interests, and what you already know.
+                </p>
+                
+                <div class="progress-tracker">
+                    <div class="step">
+                        <div class="step-circle">01</div>
+                        <div class="step-text">
+                            <strong>Your profile</strong>
+                            <span>Name, year, stream & interest</span>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-circle inactive">02</div>
+                        <div class="step-text inactive-text">
+                            <strong>Knowledge check</strong>
+                            <span>8 quick questions</span>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-circle inactive">03</div>
+                        <div class="step-text inactive-text">
+                            <strong>Your roadmap</strong>
+                            <span>Courses picked for you</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="left-footer">
+                <span>Step 1 of 3 — takes less than a minute</span>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="form-card">
+                <div class="card-header">
+                    <span class="tag">GET STARTED</span>
+                    <h2>Let's set up your profile</h2>
+                    <p>A few basics so we can calibrate your roadmap correctly. Nothing here is shared publicly.</p>
+                </div>
+
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="fullName">Full name <span class="required">*</span></label>
+                        <input type="text" id="fullName" placeholder="e.g. Ananya Sharma" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="year">Academic year <span class="required">*</span></label>
+                            <select id="year" required>
+                                <option value="" disabled selected>Choose year</option>
+                                <option value="B.Tech 1st Year">B.Tech 1st Year</option>
+                                <option value="B.Tech 2nd Year">B.Tech 2nd Year</option>
+                                <option value="B.Tech 3rd Year">B.Tech 3rd Year</option>
+                                <option value="B.Tech 4th Year">B.Tech 4th Year</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="stream">Academic stream <span class="required">*</span></label>
+                            <select id="stream" required>
+                                <option value="" disabled selected>Choose stream</option>
+                                <option value="Computer science/IT">Computer science/IT</option>
+                                <option value="Civil">Civil</option>
+                                <option value="Electrical">Electrical</option>
+                                <option value="Electronics and communication">Electronics and communication</option>
+                                <option value="Mechanical">Mechanical</option>
+                                <option value="Chemical">Chemical</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interest">Area of interest <span class="required">*</span></label>
+                        <select id="interest" required>
+                            <option value="" disabled selected>What pulls you in?</option>
+                            <option value="Software & Intelligent Systems (Apps, AI, Cybersecurity)">Software & Intelligent Systems (Apps, AI, Cybersecurity)</option>
+                            <option value="Electronics, Robotics & Smart Devices (Circuits, IoT, Embedded Systems)">Electronics, Robotics & Smart Devices (Circuits, IoT, Embedded Systems)</option>
+                            <option value="Data, AI & Computational Engineering (Data Science, Analytics, Simulation)">Data, AI & Computational Engineering (Data Science, Analytics, Simulation)</option>
+                            <option value="Design, Manufacturing & Infrastructure (CAD, Machines, Construction)">Design, Manufacturing & Infrastructure (CAD, Machines, Construction)</option>
+                            <option value="Energy, Process & Sustainable Engineering (Power, Chemicals, Environment)">Energy, Process & Sustainable Engineering (Power, Chemicals, Environment)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="primary-btn">Continue to quiz &rarr;</button>
+                    <p class="disclaimer">By continuing, you agree this info shapes your quiz & roadmap.</p>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            const userData = {
+                name: document.getElementById('fullName').value,
+                year: document.getElementById('year').value,
+                stream: document.getElementById('stream').value,
+                interest: document.getElementById('interest').value
+            };
+            localStorage.setItem('pathforgeUser', JSON.stringify(userData));
+            window.location.href = 'quiz.html';
+        });
+    </script>
+</body>
+</html>

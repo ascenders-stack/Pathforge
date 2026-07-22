@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathforge - Personalized Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="top-nav">
+        <div class="brand">
+            <span class="dot"></span> PATHFORGE <span class="line">|</span> <span class="subtitle">CAREER NAVIGATOR</span>
+        </div>
+        <div class="user-menu">
+            <div class="user-avatar" id="navAvatar">U</div>
+            <span id="navName">User</span>
+        </div>
+    </header>
+
+    <!-- Main Application Canvas -->
+    <main class="app-container">
+        
+        <!-- Top Hero Section -->
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h1>Hello "<span id="heroName">User</span>"!</h1>
+                <p>Greetings and welcome back to your AI guidance app.</p>
+                
+                <!-- Dynamic Personal Read Box -->
+                <div class="personal-read-box">
+                    <h5>A READ ON YOU:</h5>
+                    <p id="aiPersonalRead">Analyzing your psychological and skill performance indicators from your path profile metrics...</p>
+                </div>
+                
+                <button class="primary-btn" id="retakeQuizBtn">Retake Quiz / Start Over</button>
+            </div>
+            
+            <!-- Cognitive Profile Layout -->
+            <div class="hero-visuals">
+                <div class="cognitive-card">
+                    <h4>YOUR COGNITIVE PROFILE</h4>
+                    <div class="skill-bar-group">
+                        <div>
+                            <div class="skill-label-row">
+                                <span>Logic & Troubleshooting</span>
+                                <span id="skillLogicVal">0%</span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" id="barLogic"></div></div>
+                        </div>
+                        <div>
+                            <div class="skill-label-row">
+                                <span>System Architecture</span>
+                                <span id="skillArchVal">0%</span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" id="barArch" style="background-color: var(--accent-teal);"></div></div>
+                        </div>
+                        <div>
+                            <div class="skill-label-row">
+                                <span>Hands-on Engineering</span>
+                                <span id="skillPracticalVal">0%</span>
+                            </div>
+                            <div class="skill-track"><div class="skill-fill" id="barPractical" style="background-color: var(--accent-purple);"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Split Section -->
+        <section class="dashboard-grid">
+            
+            <!-- Interactive Menu Cards -->
+            <div class="action-menu">
+                <button class="menu-card" data-target="courses">
+                    <div class="icon-box" style="background: rgba(249, 115, 22, 0.12); color: var(--accent-orange);">📚</div>
+                    <div class="card-text">
+                        <h3>Courses to Start</h3>
+                        <p>Core systems & foundations</p>
+                    </div>
+                </button>
+
+                <button class="menu-card" data-target="skills">
+                    <div class="icon-box" style="background: rgba(20, 184, 166, 0.12); color: var(--accent-teal);">⚡</div>
+                    <div class="card-text">
+                        <h3>Skills to Focus On</h3>
+                        <p>Architecture & logic</p>
+                    </div>
+                </button>
+
+                <button class="menu-card" data-target="roadmap">
+                    <div class="icon-box" style="background: rgba(168, 85, 247, 0.12); color: var(--accent-purple);">🗺️</div>
+                    <div class="card-text">
+                        <h3>Roadmap to Follow</h3>
+                        <p>Your guided learning path</p>
+                    </div>
+                </button>
+
+                <button class="menu-card" data-target="projects">
+                    <div class="icon-box" style="background: rgba(234, 179, 8, 0.12); color: #EAB308;">🚀</div>
+                    <div class="card-text">
+                        <h3>Projects Recommended</h3>
+                        <p>Production-grade synthesis</p>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Recreated Image 2 Area Graph Container -->
+            <div class="graph-container">
+                <h2>Guided Path Roadmap</h2>
+                
+                <div class="chart-wrapper">
+                    <div class="chart-area" id="chartArea">
+                        <!-- Background Gradient Area Shading -->
+                        <svg class="chart-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="chartFillGrad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#D9C3A3" stop-opacity="0.4"/>
+                                    <stop offset="100%" stop-color="#D9C3A3" stop-opacity="0.0"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Shaded Area Path -->
+                            <path id="svgAreaPath" d="M 5 80 L 28 62 L 50 48 L 72 38 L 95 15 L 95 95 L 5 95 Z" fill="url(#chartFillGrad)"/>
+                            <!-- Bold Top Line Connecting Vector -->
+                            <path id="svgLinePath" d="M 5 80 L 28 62 L 50 48 L 72 38 L 95 15" fill="none" stroke="#C4A478" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        
+                        <!-- Node 1 -->
+                        <div class="chart-node" style="left: 5%; top: 80%;">
+                            <div class="node-text-wrapper top-stack">
+                                <span class="node-label">START ASSESSMENT</span>
+                            </div>
+                            <div class="node-dot"></div>
+                            <div class="node-drop-line"></div>
+                        </div>
+                        
+                        <!-- Node 2 -->
+                        <div class="chart-node" style="left: 28%; top: 62%;">
+                            <div class="node-text-wrapper top-stack">
+                                <span class="node-meta-title" id="node2Meta">GOAL 1: FOUNDATIONS</span>
+                                <span class="node-label" id="node2Label">Data Structures</span>
+                            </div>
+                            <div class="node-dot"></div>
+                            <div class="node-drop-line"></div>
+                        </div>
+
+                        <!-- Node 3 -->
+                        <div class="chart-node" style="left: 50%; top: 48%;">
+                            <div class="node-text-wrapper top-stack">
+                                <span class="node-meta-title" id="node3Meta">GOAL 2: ARCHITECTURE</span>
+                                <span class="node-label" id="node3Label">Microservices</span>
+                            </div>
+                            <div class="node-dot"></div>
+                            <div class="node-drop-line"></div>
+                        </div>
+
+                        <!-- Node 4 -->
+                        <div class="chart-node" style="left: 72%; top: 38%;">
+                            <div class="node-text-wrapper top-stack">
+                                <span class="node-meta-title" id="node4Meta">SKILL 1: CLOUD-NATIVE</span>
+                                <span class="node-label" id="node4Label">Cloud Scaling</span>
+                            </div>
+                            <div class="node-dot"></div>
+                            <div class="node-drop-line"></div>
+                        </div>
+
+                        <!-- Node 5 -->
+                        <div class="chart-node" style="left: 95%; top: 15%;">
+                            <div class="node-text-wrapper top-stack">
+                                <span class="node-meta-title">TOP LEVEL</span>
+                                <span class="node-label">CAREER READY</span>
+                            </div>
+                            <div class="node-dot"></div>
+                            <div class="node-drop-line"></div>
+                        </div>
+                    </div>
+
+                    <!-- Clean Horizontal Axis Label Grid Footer -->
+                    <div class="axis-footer-line"></div>
+                    <div class="axis-labels-row">
+                        <span style="left: 5%;">Weeks 1</span>
+                        <span style="left: 28%;">Week 2</span>
+                        <span style="left: 50%;">Week 3</span>
+                        <span style="left: 72%;">Week 4</span>
+                        <span style="left: 95%;">Week 5</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- The Slide-Over Modal Overlay -->
+    <div class="modal-overlay" id="contentModal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeModal">&times;</button>
+            <div class="modal-header">
+                <span class="modal-badge" id="modalBadge">Detailed Breakdown</span>
+                <h2 id="modalTitle">Title</h2>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Data Content Injected by JS Engine -->
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
